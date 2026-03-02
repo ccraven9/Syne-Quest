@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://2lknglri4lto"]
+
+[ext_resource type="Script" uid="uid://cycljs7nq1men" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://chd3dds42a25q" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://d2h27qu5ka1ck" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_2.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://c6av0fr6e7o0h" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_3.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://2oylnd2hcc01" path="res://assets/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_4.png" id="5_smehm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_smehm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(13, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=418554188]
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548711161]
+sprite_frames = SubResource("SpriteFrames_dqkch")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.02425297
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905624135]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3vyb7")
