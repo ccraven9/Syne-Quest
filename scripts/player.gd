@@ -1,7 +1,13 @@
 extends CharacterBody2D
+var SPEED = 0
 
-
-const SPEED = 125
+func _ready() -> void:
+	if get_tree().current_scene.name == "Overworld":
+		SPEED = 50
+	else:
+		SPEED = 125
+		print("Current scene is: " + get_tree().current_scene.name)
+#const SPEED = 125
 const JUMP_VELOCITY = -400.0
 
 
